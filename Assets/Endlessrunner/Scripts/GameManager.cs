@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace Endlessrunner.Scripts
+{ 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -42,4 +44,5 @@ public class GameManager : MonoBehaviour
             obj.scroll = false;
         }
     }
+  }
 }

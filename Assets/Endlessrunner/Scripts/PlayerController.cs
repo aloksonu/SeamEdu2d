@@ -1,7 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
+
+
+namespace Endlessrunner.Scripts
+{ 
 public class PlayerController : MonoBehaviour
 {
 
@@ -70,4 +75,5 @@ public class PlayerController : MonoBehaviour
             //ScorePanel.instance.UpdateScore(-1);
         }
     }
+ }
 }
