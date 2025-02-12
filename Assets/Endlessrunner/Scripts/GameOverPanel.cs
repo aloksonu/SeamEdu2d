@@ -25,11 +25,13 @@ public class GameOverPanel : MonoBehaviour
     public void RestartGame()
     {
         audioManager.PlaySFX(audioManager.buttonClickClip);
-        SceneManager.LoadScene("EndRunner");
+        //SceneManager.LoadScene("EndRunner");
+        SceneManager.LoadScene(SceneName.EndRunner.ToString());
     }
     public void Menu()
     {
         audioManager.PlaySFX(audioManager.buttonClickClip);
-        SceneManager.LoadScene("EndRunnerMenu");
+        //SceneManager.LoadScene("EndRunnerMenu");
+        SceneManager.LoadScene(SceneName.EndRunnerMenu.ToString());
     }
 }
