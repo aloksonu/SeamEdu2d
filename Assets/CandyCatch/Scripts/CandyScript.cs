@@ -1,19 +1,29 @@
 using UnityEngine;
 
-public class CandyScript : MonoBehaviour
+namespace CandyCatch
 {
-    // Start is called before the first frame update
-    void Start()
+    public class CandyScript : MonoBehaviour
     {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == "Player")
+        // Start is called before the first frame update
+        void Start()
         {
-            Destroy(gameObject);
-        }
-    }
 
+        }
+
+        private void OnTriggerEnter2D(Collider2D collider)
+        {
+            if (collider.gameObject.tag == "Player")
+            {
+                GameManager.instance.IncrementScore();
+                Destroy(gameObject);
+            }
+
+            else if (collider.gameObject.tag == "Boundary")
+            {
+                GameManager.instance.DecreaseLife();
+                Destroy(gameObject);
+            }
+        }
+
+    }
 }

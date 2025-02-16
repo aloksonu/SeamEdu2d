@@ -4,20 +4,31 @@ namespace CandyCatch
 {
     public class PlayerController : MonoBehaviour
     {
-        bool canMove = true;
+        public static PlayerController instance;    
+        internal bool canMove;
         [SerializeField] float moveSpeed; //15
         [SerializeField] float maxPos;  //6.7
+
+        private void Awake()
+        {
+            if (instance == null) {
+                instance = this;
+            }
+        }
 
         // Start is called before the first frame update
         void Start()
         {
-
+            canMove = true;
         }
 
         // Update is called once per frame
         void Update()
         {
-            move();
+            if (canMove)
+            {
+                move();
+            }
         }
         private void move()
         {
