@@ -1289,7 +1289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tmpScore: {fileID: 1833830891}
   tmpLives: {fileID: 1372089676}
-  gameOverPanel: {fileID: 1286811384}
+  _cgGameOver: {fileID: 1286811389}
 --- !u!1 &1255241626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,13 +1447,14 @@ GameObject:
   - component: {fileID: 1286811387}
   - component: {fileID: 1286811386}
   - component: {fileID: 1286811388}
+  - component: {fileID: 1286811389}
   m_Layer: 5
   m_Name: GameOverPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1286811385
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1528,6 +1529,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonRestart: {fileID: 853569197}
   buttonMenu: {fileID: 1066758274}
+--- !u!225 &1286811389
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286811384}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1286952625
 GameObject:
   m_ObjectHideFlags: 0

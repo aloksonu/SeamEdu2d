@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -11,7 +12,8 @@ namespace CandyCatch
         public static GameManager instance;
         public TextMeshProUGUI tmpScore;
         public TextMeshProUGUI tmpLives;
-        public GameObject gameOverPanel;
+        //public GameObject gameOverPanel;
+        public CanvasGroup _cgGameOver;
         private int score;
         private int lives;
 
@@ -31,6 +33,8 @@ namespace CandyCatch
             gameOver = false;
             tmpScore.text = score.ToString();
             tmpLives.text = lives.ToString();
+            _cgGameOver.DOFade(0, 0f);
+            _cgGameOver.interactable = false;
         }
 
         // Update is called once per frame
@@ -68,7 +72,12 @@ namespace CandyCatch
         {
             PlayerController.instance.canMove = false;
             CandySpawner.instance.StopSpawanCandies();
-            gameOverPanel.SetActive(true);
+            //gameOverPanel.SetActive(true);
+
+            _cgGameOver.DOFade(1, 0.2f).OnComplete(() =>
+            {
+                _cgGameOver.interactable = true;
+            });
         }
     }
 }
