@@ -8,6 +8,11 @@ public class Projectile : MonoBehaviour
     private SpringJoint2D springJoint;
     private bool isPressed;
 
+    public Animator[] cageAnimator;
+    public Animator[] birdAnimator;
+    public GameObject[] bird;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,6 +43,28 @@ public class Projectile : MonoBehaviour
     {
         yield return new WaitForSeconds(0.15f);
         GetComponent<SpringJoint2D>().enabled = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Boundary")
+        {
+            Debug.Log("Hit Boundary");
+            foreach (var cage in cageAnimator)
+            {
+                cage.Play("ACageBreak");
+                Destroy(cage.gameObject, 3f);
+            }
+            foreach (var bird in birdAnimator)
+            {
+                bird.Play("Fly");
+                Destroy(bird.gameObject, 3f);
+            }
+            foreach (var item in bird)
+            {
+                item.GetComponent<BirdFly>().enabled = true;
+            }
+        }
     }
 
 }
